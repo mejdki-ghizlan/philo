@@ -3,6 +3,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror	-pthread
 
 SRCS = utils.c \
+		utils2.c \
        init.c \
 	   routine.c \
 	   parsing.c \
