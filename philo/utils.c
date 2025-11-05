@@ -3,47 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-mejd <ael-mejd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gel-mejd <gel-mejd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/25 13:10:55 by ael-mejd          #+#    #+#             */
-/*   Updated: 2025/11/05 00:32:42 by ael-mejd         ###   ########.fr       */
+/*   Created: 2025/11/05 02:30:09 by gel-mejd          #+#    #+#             */
+/*   Updated: 2025/11/05 02:30:12 by gel-mejd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "philosopher.h"
+#include "philosopher.h"
 
-long ft_atol(char *str)
+long	ft_atol(char *str)
 {
-    int i;
-    long res;
+	int		i;
+	long	res;
 
-    i = 0;
-    if (str[i] == '+' || str[i] == '-')
-        i++;
-    res = 0;
-    while (str[i] && (str[i] >= '0' && str[i] <= '9'))
-    {
-        res = res * 10 + (str[i] - 48);
-        i++;
-    }
-    return (res);
+	i = 0;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	res = 0;
+	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+	{
+		res = res * 10 + (str[i] - 48);
+		i++;
+	}
+	return (res);
 }
 
-int exit_error(char *str)
+int	exit_error(char *str)
 {
-    printf("%s\n", str);
-    return (1);
+	printf("%s\n", str);
+	return (1);
 }
 
-void ft_sleep(int ms)
+void	ft_sleep(int ms)
 {
-    long start;
+	long	start;
 
-    start = get_time();
-    while (get_time() - start < ms)
-        usleep(500);
+	start = get_time();
+	while (get_time() - start < ms)
+		usleep(500);
 }
-
 
 void	destroy_mutexes(t_table *table)
 {
@@ -61,7 +60,7 @@ void	destroy_mutexes(t_table *table)
 void	free_all(t_table *table)
 {
 	if (!table)
-		return;
+		return ;
 	if (table->forks)
 		free(table->forks);
 	if (table->philosopher)
